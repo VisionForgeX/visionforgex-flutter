@@ -1,0 +1,12 @@
+name: visionforgex_example
+description: Demo of the VisionForgeX plugin on Google's demo ad units.
+publish_to: none
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  visionforgex:
+    path: ../
+flutter:
+  uses-material-design: true

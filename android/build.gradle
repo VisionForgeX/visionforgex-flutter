@@ -1,0 +1,37 @@
+group = "com.visionforgex.flutter"
+version = "1.0.0"
+
+buildscript {
+    ext.kotlin_version = "1.9.24"
+    repositories { google(); mavenCentral() }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.5.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }   // where the VisionForgeX Android SDK is built
+    }
+}
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+    namespace = "com.visionforgex.flutter"
+    compileSdk = 34
+    defaultConfig { minSdk = 24 }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = "17" }
+}
+
+dependencies {
+    api("com.github.VisionForgeX.visionforgex-android-sdk:vfx-ads:1.0.2")
+}
