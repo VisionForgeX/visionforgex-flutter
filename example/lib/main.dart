@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:visionforgex/visionforgex.dart';
+import 'package:visionforgex_flutter/visionforgex_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

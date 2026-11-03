@@ -6,7 +6,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  visionforgex:
+  visionforgex_flutter:
     path: ../
 flutter:
   uses-material-design: true

@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'visionforgex'
+  s.name             = 'visionforgex_flutter'
   s.version          = '1.0.0'
   s.summary          = 'VisionForgeX ads for Flutter.'
   s.homepage         = 'https://apps.visionforgex.com'

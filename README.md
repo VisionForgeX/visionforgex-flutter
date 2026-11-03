@@ -10,7 +10,7 @@ Exchange) through your VisionForgeX account. A thin plugin over the native Visio
 
 ```yaml
 dependencies:
-  visionforgex: ^1.0.0
+  visionforgex_flutter: ^1.0.0
 ```
 
 **Android**: in `android/app/src/main/AndroidManifest.xml`, inside `<application>`, the App ID shown on your app's page

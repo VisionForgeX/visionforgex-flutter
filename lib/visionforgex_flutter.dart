@@ -4,7 +4,7 @@
 /// await VisionForgeX.initialize('vfx_…your app key…');
 /// await VisionForgeX.interstitial('level_complete').show();
 /// ```
-library visionforgex;
+library visionforgex_flutter;
 
 export 'src/types.dart';
 export 'src/visionforgex.dart';
