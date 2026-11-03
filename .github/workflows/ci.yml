@@ -32,4 +32,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with: { channel: stable }
-      - run: cd example && flutter create --platforms=android,ios . && flutter pub get && flutter build ios --no-codesign --debug
+      - run: cd example && flutter create --platforms=android,ios . && flutter pub get
+      - name: Take the VisionForgeX pod from GitHub (it is not on CocoaPods trunk yet)
+        run: |
+          cd example
+          flutter build ios --config-only --no-codesign || true
+          python3 -c "import re;p='ios/Podfile';s=open(p).read();s=re.sub(r\"(target 'Runner' do\n)\",r\"\1  pod 'VisionForgeX', :git => 'https://github.com/VisionForgeX/visionforgex-ios-sdk.git', :branch => 'main'\n\",s,1);open(p,'w').write(s)"
+          grep -n VisionForgeX ios/Podfile
+      - run: cd example && flutter build ios --no-codesign --debug
