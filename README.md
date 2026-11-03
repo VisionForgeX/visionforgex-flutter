@@ -27,7 +27,8 @@ on VisionForgeX (minSdk 24):
 <string>ca-app-pub-…~…</string>
 ```
 
-plus Google's SKAdNetwork identifiers (list on Google's site). Run `cd ios && pod install`.
+plus Google's SKAdNetwork identifiers (list on Google's site). In `ios/Podfile`, Google's ad SDK is a static library, so
+change `use_frameworks!` to `use_frameworks! :linkage => :static`. Then run `cd ios && pod install`.
 
 ## Start it and show ads
 

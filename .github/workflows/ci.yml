@@ -38,5 +38,6 @@ jobs:
           cd example
           flutter build ios --config-only --no-codesign || true
           python3 -c "import re;p='ios/Podfile';s=open(p).read();s=re.sub(r\"(target 'Runner' do\n)\",r\"\1  pod 'VisionForgeX', :git => 'https://github.com/VisionForgeX/visionforgex-ios-sdk.git', :branch => 'main'\n\",s,1);open(p,'w').write(s)"
-          grep -n VisionForgeX ios/Podfile
+          sed -i.bak 's/^  use_frameworks!$/  use_frameworks! :linkage => :static/' ios/Podfile
+          grep -n "VisionForgeX\|use_frameworks" ios/Podfile
       - run: cd example && flutter build ios --no-codesign --debug
