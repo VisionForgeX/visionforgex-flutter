@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'VisionForgeX', '~> 1.0'
+  s.dependency 'VisionForgeX', '~> 1.2'
   s.platform         = :ios, '13.0'
   s.swift_version    = '5.9'
 end

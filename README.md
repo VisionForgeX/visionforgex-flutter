@@ -13,6 +13,10 @@ dependencies:
   visionforgex_flutter: ^1.0.0
 ```
 
+**Google's SDK on Android**: the plugin runs on Google's GMA Next-Gen SDK (Google's preferred Android SDK; compileSdk 35
+or higher). To stay on Google Mobile Ads 25.x instead (Google retires it on 30 Jun 2028), add `visionforgexEngine=gma` to
+`android/gradle.properties`. Never add Google's own `google_mobile_ads` plugin beside this one.
+
 **Android**: in `android/app/src/main/AndroidManifest.xml`, inside `<application>`, the App ID shown on your app's page
 on VisionForgeX (minSdk 24):
 

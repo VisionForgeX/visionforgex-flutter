@@ -24,10 +24,15 @@ jobs:
         with: { distribution: temurin, java-version: 17 }
       - uses: subosito/flutter-action@v2
         with: { channel: stable }
+      # until the Android SDK's 1.2.0 tag exists, JitPack builds it from this commit (remove once it is released)
       - run: cd example && flutter create --platforms=android,ios . && flutter pub get && flutter build apk --debug
+        env: { VFX_SDK_VERSION: c4ef122 }
+      - name: The same on Google Mobile Ads 25.x (visionforgexEngine=gma)
+        run: cd example && echo "visionforgexEngine=gma" >> android/gradle.properties && flutter build apk --debug
+        env: { VFX_SDK_VERSION: c4ef122 }
   ios:
     name: Build the example for iOS
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2

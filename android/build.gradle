@@ -23,15 +23,26 @@ apply plugin: "kotlin-android"
 
 android {
     namespace = "com.visionforgex.flutter"
-    compileSdk = 34
+    compileSdk = 35   // Google's Next-Gen SDK needs 35
     defaultConfig { minSdk = 24 }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+    kotlinOptions {
+        jvmTarget = "17"
+        // the native SDK and Google's are built with a newer Kotlin than Flutter's default; their classes read fine
+        freeCompilerArgs += ["-Xskip-metadata-version-check"]
+    }
 }
 
+// Which of Google's Android SDKs the app runs on: "nextgen" (Google's GMA Next-Gen SDK, the default) or "gma"
+// (Google Mobile Ads 25.x, retired by Google on 30 Jun 2028). Set it in the app's android/gradle.properties:
+//   visionforgexEngine=gma
+def vfxEngine = (rootProject.findProperty("visionforgexEngine") ?: "nextgen").toString()
+// The native SDK's version; VFX_SDK_VERSION (a tag or a commit, which JitPack builds) is only for this repository's CI.
+def vfxSdk = (System.getenv("VFX_SDK_VERSION") ?: "1.2.0").toString()
+
 dependencies {
-    api("com.github.VisionForgeX.visionforgex-android-sdk:vfx-ads:1.0.2")
+    api("com.github.VisionForgeX.visionforgex-android-sdk:${vfxEngine == "gma" ? "vfx-ads" : "vfx-ads-nextgen"}:${vfxSdk}")
 }
