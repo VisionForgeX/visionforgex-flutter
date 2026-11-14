@@ -1,3 +1,5 @@
+// Flutter 3.47 moved Material out of the SDK (package:material_ui); this demo keeps the import that works on both.
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:visionforgex_flutter/visionforgex_flutter.dart';
 
