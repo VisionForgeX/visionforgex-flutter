@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 (not released)
+## 1.0.0 (15 Nov 2026)
 On the native SDKs 1.2.0. **Android runs on Google's GMA Next-Gen SDK by default** (Google's preferred Android SDK);
 `visionforgexEngine=gma` in the app's `android/gradle.properties` keeps Google Mobile Ads 25.x instead (retired by Google
 on 30 Jun 2028). The app's Dart code is the same either way. iOS: Google Mobile Ads 13 (needs Xcode 16). compileSdk 35.

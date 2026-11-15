@@ -10,7 +10,18 @@ Exchange) through your VisionForgeX account. A thin plugin over the native Visio
 
 ```yaml
 dependencies:
-  visionforgex_flutter: ^1.0.0
+  visionforgex_flutter:
+    git:
+      url: https://github.com/VisionForgeX/visionforgex-flutter.git
+      ref: 1.0.0
+```
+
+(Once the plugin is on pub.dev this becomes `visionforgex_flutter: ^1.0.0`.)
+
+**iOS**: until the native SDK is on CocoaPods' catalogue, add this line inside `target 'Runner' do` in `ios/Podfile`:
+
+```ruby
+pod 'VisionForgeX', :git => 'https://github.com/VisionForgeX/visionforgex-ios-sdk.git', :tag => '1.2.0'
 ```
 
 **Google's SDK on Android**: the plugin runs on Google's GMA Next-Gen SDK (Google's preferred Android SDK; compileSdk 35
