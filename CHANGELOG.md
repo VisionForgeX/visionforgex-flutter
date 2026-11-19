@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 (19 Nov 2026)
+On the native SDKs **1.3.0** (Android `vfx-ads-nextgen`/`vfx-ads` 1.3.0 from JitPack; iOS pod `VisionForgeX` 1.3.0, the
+podspec now needs `~> 1.3`, so the app's Podfile line moves to `:tag => '1.3.0'`). What it adds: when VisionForgeX
+switches it on for the app, each impression's revenue goes to AppsFlyer (6.15+) or Adjust if the app has it, with no Dart
+to write. The Dart API is unchanged; an app that has neither tool behaves exactly as with 1.0.0.
+
 ## 1.0.0 (15 Nov 2026)
 On the native SDKs 1.2.0. **Android runs on Google's GMA Next-Gen SDK by default** (Google's preferred Android SDK);
 `visionforgexEngine=gma` in the app's `android/gradle.properties` keeps Google Mobile Ads 25.x instead (retired by Google

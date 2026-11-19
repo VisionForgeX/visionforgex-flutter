@@ -1,5 +1,5 @@
 group = "com.visionforgex.flutter"
-version = "1.0.0"
+version = "1.0.1"
 
 buildscript {
     ext.kotlin_version = "1.9.24"
@@ -41,7 +41,7 @@ android {
 //   visionforgexEngine=gma
 def vfxEngine = (rootProject.findProperty("visionforgexEngine") ?: "nextgen").toString()
 // The native SDK's version; VFX_SDK_VERSION (a tag or a commit, which JitPack builds) is only for this repository's CI.
-def vfxSdk = (System.getenv("VFX_SDK_VERSION") ?: "1.2.0").toString()
+def vfxSdk = (System.getenv("VFX_SDK_VERSION") ?: "1.3.0").toString()
 
 dependencies {
     api("com.github.VisionForgeX.visionforgex-android-sdk:${vfxEngine == "gma" ? "vfx-ads" : "vfx-ads-nextgen"}:${vfxSdk}")

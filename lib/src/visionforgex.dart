@@ -20,7 +20,7 @@ class VisionForgeX {
   VisionForgeX._();
 
   /// This plugin's version.
-  static const String version = '1.0.0';
+  static const String version = '1.0.1';
 
   static MethodChannel _channel = const MethodChannel(_channelName);
   static EventChannel _events = const EventChannel(_eventsName);

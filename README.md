@@ -13,15 +13,15 @@ dependencies:
   visionforgex_flutter:
     git:
       url: https://github.com/VisionForgeX/visionforgex-flutter.git
-      ref: 1.0.0
+      ref: 1.0.1
 ```
 
-(Once the plugin is on pub.dev this becomes `visionforgex_flutter: ^1.0.0`.)
+(Once the plugin is on pub.dev this becomes `visionforgex_flutter: ^1.0.1`.)
 
 **iOS**: until the native SDK is on CocoaPods' catalogue, add this line inside `target 'Runner' do` in `ios/Podfile`:
 
 ```ruby
-pod 'VisionForgeX', :git => 'https://github.com/VisionForgeX/visionforgex-ios-sdk.git', :tag => '1.2.0'
+pod 'VisionForgeX', :git => 'https://github.com/VisionForgeX/visionforgex-ios-sdk.git', :tag => '1.3.0'
 ```
 
 **Google's SDK on Android**: the plugin runs on Google's GMA Next-Gen SDK (Google's preferred Android SDK; compileSdk 35
@@ -79,10 +79,19 @@ Placements: `banner`, `collapsible_banner`, `interstitial`, `rewarded`, `rewarde
 
 ```dart
 if (await VisionForgeX.isPrivacyOptionsRequired()) await VisionForgeX.showPrivacyOptions();
-VisionForgeX.revenue.listen((r) { /* r.valueMicros, r.currency → Firebase, AppsFlyer, Adjust */ });
+VisionForgeX.revenue.listen((r) { /* r.valueMicros, r.currency → Firebase or your own records */ });
 VisionForgeX.events.listen((e) { /* req, fill, nofill, show, click, close, fail, reward, paid, capped */ });
 ```
 
+## Ad revenue in AppsFlyer or Adjust
+
+When VisionForgeX switches it on for your app, each impression's revenue is sent to the attribution tool the app already
+runs, with no Dart to write: **AppsFlyer** 6.15 or newer (its Flutter plugin `appsflyer_sdk`) or **Adjust** (its Flutter
+plugin `adjust_sdk`). Add and start that tool as its own guide says; VisionForgeX finds it in the app and never starts or
+sets it up. Not in the app: nothing is sent. Demo ads are never sent. Don't also send `VisionForgeX.revenue` to the same
+tool from your own code, or each impression counts twice. Needs the native SDKs 1.3.0, which this plugin uses from 1.0.1.
+
 ## Status
 
-1.0.0 is written but has not yet been through its first CI run. Native ads are not in this version.
+1.0.1 (on the native SDKs 1.3.0) is released on GitHub. Its Dart layer is tested and CI builds the example for Android and
+iOS on every push. Native ads are not in this version.
